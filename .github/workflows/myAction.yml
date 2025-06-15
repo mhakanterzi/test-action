@@ -19,4 +19,4 @@ jobs:
         run: npm install --save-dev prettier
 
       - name: Run Prettier check
-        run: npx prettier --check "ToDoList/**/*.{js,css,html}"
+        run: npx prettier --check --write "ToDoList/**/*.{js,css,html}"
