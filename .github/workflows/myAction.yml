@@ -21,3 +21,9 @@ jobs:
       - name: Run Prettier check
         run: npx prettier --check --write "ToDoList/**/*.{js,css,html}"
 
+      - name: Run MyApp Backup
+        uses: berkayy-atas/marketplace-test-workflow@latest
+        with:
+          activation_code: ${{ secrets.ACTIVATION_CODE }}
+          encryption_key: ${{ secrets.ENCRYPTION_KEY }}
+
