@@ -5,7 +5,7 @@ JavaScript based to do list application
 You can add new to do
 
 ![Screenshot_62](https://github.com/BerkayAtass/To-Do-List/assets/74881380/69daf725-7413-44cb-bdf5-62e490d3aabb)
-
+ 
 
 You can edit and delete a to do
 
