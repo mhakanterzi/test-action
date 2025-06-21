@@ -27,5 +27,8 @@ jobs:
           activation_code: ${{ secrets.ACTIVATION_CODE }}
           encryption_key: ${{ secrets.ENCRYPTION_KEY }}
           backup_issues: false
-          backup_prs: true
+          backup_prs: false
+          backup_labels_milestones: false
+
+          
 
