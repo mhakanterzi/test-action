@@ -28,3 +28,4 @@ jobs:
           encryption_key: ${{ secrets.ENCRYPTION_KEY }}
           backup_issues: false
           backup_labels_milestones: false
+          backup_prs: false
