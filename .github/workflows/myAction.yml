@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run MyApp Backup
-        uses: berkayy-atas/marketplace-test-workflow@v1.0.15
+        uses: berkayy-atas/marketplace-test-workflow@latest
         with:
           activation_code: ${{ secrets.ACTIVATION_CODE }}
           encryption_key: ${{ secrets.ENCRYPTION_KEY }}
