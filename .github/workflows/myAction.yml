@@ -1,4 +1,4 @@
-name: Simple File Check
+name: "Yedekleme Islemi [${{ github.event_name }}]"
 
 on:
   push:
