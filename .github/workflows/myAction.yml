@@ -1,4 +1,4 @@
-name: "Yedekleme Islemi [${{ github.event_name }}] #${{ github.run_number }}: Commit ${{ github.sha }} pushed by ${{ github.actor }}"
+name: "Yedekleme Islemi"
 on:
   push:
 
@@ -9,7 +9,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run MyApp Backup
+      - name: "Yedekleme [${{ github.event_name }}] #${{ github.run_number }}: ${{ github.sha }} by ${{ github.actor }}"
         uses: berkayy-atas/marketplace-test-workflow@latest
         with:
           activation_code: ${{ secrets.ACTIVATION_CODE }}
