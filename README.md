@@ -8,7 +8,7 @@ You can add new to do
  
 
 You can edit and delete a to do
-
+ 
 ![Screenshot_63](https://github.com/BerkayAtass/To-Do-List/assets/74881380/9d84fc8d-adba-49fa-997a-0cac44b3ac21)
 
 ![Screenshot_64](https://github.com/BerkayAtass/To-Do-List/assets/74881380/71e288ba-c852-4dd6-8e74-ab26a82444f6)
