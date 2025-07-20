@@ -1,16 +1,30 @@
+#.github/workflows/backup.yml
+
 name: "Yedekleme Islemi"
+
 on:
   push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-  check-files:
+  run-backup:
     runs-on: ubuntu-latest
+    
+    # Gerekli minimum izinleri ayarla
+    permissions:
+      contents: read
+      
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: "Yedekleme [${{ github.event_name }}] #${{ github.run_number }}: ${{ github.sha }} by ${{ github.actor }}"
-        uses: berkayy-atas/marketplace-test-workflow@latest
+      - name: "Yedekleme İşlemini Başlat"
+        # Sizin yeniden kullanılabilir iş akışınıza referans verilir.
+        # Kullanıcıların kararlılık için belirli bir sürüme (@v1) sabitlemesi önerilir.
+        uses: berkayy-atas/marketplace-test-workflow/.github/workflows/reusable-backup-workflow.yml@latest # veya @v1.0.0
         with:
+          backup_path: './path/to/backup'
           activation_code: ${{ secrets.ACTIVATION_CODE }}
           encryption_password: ${{ secrets.ENCRYPTION_KEY }}
