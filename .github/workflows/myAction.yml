@@ -1,20 +1,21 @@
 #.github/workflows/myAction.yml
 
 name: "Yedekleme Islemi"
-permissions:
-  contents: read  # Depoyu okumak için
-  actions: write   # Önbelleği silebilmek için
-      
+
 on:
   push:
-   
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   run-backup:
-    runs-on: ubuntu-latest
-    steps:
-    - name: "Yedekleme [${{ github.event_name }}] #${{ github.run_number }}: ${{ github.sha }} by ${{ github.actor }}"
-      uses: berkayy-atas/marketplace-test-workflow/.github/workflows/reusable-backup-workflow.yml@latest
-      with:
-        activation_code: ${{ secrets.ACTIVATION_CODE }}
-        encryption_password: ${{ secrets.ENCRYPTION_KEY }}
+    # Temizlik işinin çalışabilmesi için gerekli izinler
+    permissions:
+      contents: read  # Depoyu okumak için
+      actions: write   # Önbelleği silebilmek için
+    
+    uses: berkayy-atas/marketplace-test-workflow/.github/workflows/reusable-backup-workflow.yml@main
+    secrets:
+      activation_code: ${{ secrets.ACTIVATION_CODE }}
+      encryption_password: ${{ secrets.ENCRYPTION_KEY }}
