@@ -16,6 +16,6 @@ jobs:
       actions: write   # Önbelleği silebilmek için
     
     uses: berkayy-atas/marketplace-test-workflow/.github/workflows/reusable-backup-workflow.yml@main
-    inputs:
+    with:
       activation_code: ${{ secrets.ACTIVATION_CODE }}
       encryption_password: ${{ secrets.ENCRYPTION_KEY }}
