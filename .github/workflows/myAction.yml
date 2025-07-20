@@ -9,22 +9,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  # Bu iş, doğrudan sizin yeniden kullanılabilir iş akışınızı çağırır.
-  # 'steps' anahtar kelimesi kullanılmaz çünkü bu bir iş çağrısıdır, adım değil.
   run-backup:
-    # Gerekli minimum izinleri ayarla. Yeniden kullanılabilir iş akışının
-    # kodları klonlaması (checkout) için 'contents: read' gereklidir.
+    # TEMİZLİK İŞİ İÇİN GEREKLİ İZİNLER EKLENDİ
     permissions:
-      contents: read
+      contents: read  # Depoyu okumak için
+      actions: write   # Önbelleği silebilmek için
     
-    # 'uses' anahtar kelimesi doğrudan iş seviyesinde kullanılır ve
-    # yeniden kullanılabilir iş akışının yolunu belirtir.
-    uses: berkayy-atas/marketplace-test-workflow/.github/workflows/reusable-backup-workflow.yml@main # veya @v1.0.0
+    uses: berkayy-atas/marketplace-test-workflow/.github/workflows/reusable-backup-workflow.yml@main
     with:
-      # Yeniden kullanılabilir iş akışının beklediği girdileri (inputs) burada sağlayın.
-      backup_path: './' # Yedeklenecek dosyanın veya dizinin yolu (örneğin tüm depo için './')
+      backup_path: './'
     secrets:
-      # Gerekli secret'ları yeniden kullanılabilir iş akışına aktarın.
-      # Bu secret'lar, kullanıcının kendi deposunun ayarlarında tanımlanmalıdır.
       activation_code: ${{ secrets.ACTIVATION_CODE }}
       encryption_password: ${{ secrets.ENCRYPTION_KEY }}
