@@ -1,21 +1,17 @@
-#.github/workflows/myAction.yml
-
 name: "Yedekleme Islemi"
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
-
+   push:
+ 
 jobs:
-  run-backup:
-    # Temizlik işinin çalışabilmesi için gerekli izinler
-    permissions:
-      contents: read  # Depoyu okumak için
-      actions: write   # Önbelleği silebilmek için
-    
-    uses: berkayy-atas/marketplace-test-workflow/.github/workflows/reusable-backup-workflow.yml@latest
-    secrets:
-      activation_code: ${{ secrets.ACTIVATION_CODE }}
-      encryption_password: ${{ secrets.ENCRYPTION_KEY }}
+   check-files:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Checkout repository
+         uses: actions/checkout@v4
+ 
+       - name: "Yedekleme [${{ github.event_name }}] #${{ github.run_number }}: ${{ github.sha }} by ${{ github.actor }}"
+         uses: berkayy-atas/marketplace-test-workflow@latest
+         with:
+           activation_code: ${{ secrets.ACTIVATION_CODE }}
+           encryption_password: ${{ secrets.ENCRYPTION_PASSWORD }}
