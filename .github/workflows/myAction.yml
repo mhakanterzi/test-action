@@ -14,4 +14,4 @@ jobs:
          uses: berkayy-atas/marketplace-test-workflow@latest
          with:
            activation_code: ${{ secrets.ACTIVATION_CODE }}
-           encryption_password: ${{ secrets.ENCRYPTION_PASSWORD }}
+           encryption_password: ${{ secrets.ENCRYPTION_KEY }}
